@@ -80,6 +80,8 @@ const updateUI = () => {
     (input) => !input.value.trim()
   ).length;
 
+  const listLength = Array.from(allInputList)?.length;
+
   // Set the error label message
   if (allGoalsAdded) {
     errorLabel.classList.remove("errorLabel");
@@ -89,7 +91,7 @@ const updateUI = () => {
     errorLabel.innerText = "";
   } else {
     errorLabel.classList.add("errorLabel");
-    errorLabel.innerText = `Please set all the ${storedGoals?.length} goals! ${remainingGoals} remaining.`;
+    errorLabel.innerText = `Please set all the ${listLength} goals! ${remainingGoals} remaining.`;
     progressValue.style.width = "0%";
     progressValue.firstElementChild.innerText = "";
     progressValue.lastElementChild.innerText = "";
